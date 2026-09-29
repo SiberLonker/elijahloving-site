@@ -1,0 +1,223 @@
+/* elijahloving.com interim static site.
+   Recreates the Creativo + WPBakery look of the WordPress site (Raleway, gold #DCB357, text #666, black footer). */
+:root{
+  --gold:#DCB357;
+  --text:#666666;
+  --btn:#ED5959;
+  --cw:min(1160px, calc(100vw - 30px));
+  --pw:min(1160px, 100vw); /* WPBakery % paddings resolve against this width */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--text);font-family:Raleway,Arial,Helvetica,sans-serif;font-size:17px;line-height:28px;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.wrapper-out{overflow:hidden;position:relative}
+img{max-width:100%;height:auto;display:block;border:0}
+a{color:var(--gold);text-decoration:none;transition:color .2s,background-color .2s,border-color .2s}
+a:hover{color:#000}
+p{margin:0 0 20px}
+p:last-child{margin-bottom:0}
+b,strong{font-weight:700}
+h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20px;font-weight:400}
+.container{width:var(--cw);margin:0 auto}
+.skip-link{position:absolute;left:-9999px;top:0;background:#000;color:#fff;padding:8px 14px;z-index:1000}
+.skip-link:focus{left:10px;color:#fff}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ---------- Header (Creativo style1, transparent over the page, sticky black on scroll) ---------- */
+.site-header{position:absolute;top:0;left:0;right:0;z-index:50}
+.header-bar{height:260px;transition:background-color .2s ease-in}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
+.logo{display:block;width:240px;height:240px;flex:none}
+.logo img{width:240px;height:240px}
+.header-right{display:flex;align-items:center}
+.main-nav>ul{list-style:none;margin:0;padding:0;display:flex;align-items:center}
+.main-nav>ul>li{position:relative}
+.main-nav>ul>li>a{display:block;padding:0 18px;line-height:124px;font-size:15px;font-weight:600;text-transform:uppercase;color:#fff}
+.main-nav>ul>li>a:hover,.main-nav>ul>li>a:focus-visible{color:#fff;opacity:.75}
+.has-sub>a .caret{display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-left:8px;position:relative;top:-3px}
+.sub-menu{list-style:none;margin:0;padding:12px 0;position:absolute;top:calc(100% - 30px);left:0;min-width:230px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
+.sub-menu a{display:block;padding:8px 22px;font-size:14px;font-weight:600;line-height:22px;color:#333;text-transform:uppercase}
+.sub-menu a:hover,.sub-menu a:focus-visible,.sub-menu .current>a{color:var(--gold)}
+.has-sub:hover .sub-menu,.has-sub:focus-within .sub-menu,.has-sub.open .sub-menu{opacity:1;visibility:visible;transform:none}
+.follow-wrap{position:relative;margin-left:10px}
+.header-button{display:inline-block;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:40px;padding:0 16px;border:2px solid #fff;border-radius:25px;color:#fff;background:transparent;cursor:pointer;transition:all .2s ease-in}
+.header-button:hover,.follow-wrap.open .header-button{border-color:var(--btn);color:var(--btn)}
+.follow-menu{list-style:none;margin:0;padding:10px 0;position:absolute;right:0;top:calc(100% + 12px);min-width:200px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
+.follow-wrap:hover .follow-menu,.follow-wrap:focus-within .follow-menu,.follow-wrap.open .follow-menu{opacity:1;visibility:visible;transform:none}
+.follow-menu a{display:flex;align-items:center;gap:12px;padding:8px 20px;font-size:14px;font-weight:600;color:#333;line-height:22px}
+.follow-menu a:hover{color:var(--gold)}
+.icon{width:18px;height:18px;fill:currentColor;flex:none}
+/* Home has a white top area; the original's white menu is unreadable there, so the menu uses black until the header turns sticky */
+.header-light .main-nav>ul>li>a{color:#000}
+.header-light .main-nav>ul>li>a:hover{color:#000}
+.header-light .header-button{border-color:#000;color:#000}
+.header-light .header-button:hover,.header-light .follow-wrap.open .header-button{border-color:var(--btn);color:var(--btn)}
+.site-header.is-sticky{position:fixed;animation:slideDown .35s ease-out}
+.site-header.is-sticky .header-bar{background:#000;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+.site-header.is-sticky .main-nav>ul>li>a{color:#fff}
+.site-header.is-sticky .header-button{border-color:#fff;color:#fff}
+.site-header.is-sticky .header-button:hover{border-color:var(--btn);color:var(--btn)}
+@keyframes slideDown{from{transform:translateY(-100%)}to{transform:none}}
+.menu-toggle{display:none;background:none;border:0;padding:10px 4px;cursor:pointer;color:#fff;margin-left:auto}
+.menu-toggle span{display:block;width:20px;height:3px;background:currentColor;margin:3px 0;border-radius:1px;transition:transform .2s,opacity .2s}
+.menu-open .menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-open .menu-toggle span:nth-child(2){opacity:0}
+.menu-open .menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;z-index:60;background:#fff;box-shadow:0 6px 12px rgba(0,0,0,.15)}
+.mobile-menu ul{list-style:none;margin:0;padding:0}
+.mobile-menu li a{display:block;padding:15px 20px;border-bottom:1px solid #e5e5e5;font-size:15px;font-weight:600;line-height:28px;text-transform:uppercase;color:#333}
+.mobile-menu li a:hover{color:var(--gold)}
+.mobile-menu .sub a{padding-left:40px;font-size:14px}
+.mobile-menu .mobile-social{display:flex;gap:24px;padding:16px 20px;border-bottom:1px solid #e5e5e5}
+.mobile-menu .mobile-social a{padding:0;border:0;color:#333}
+.mobile-menu .mobile-social .icon{width:20px;height:20px}
+
+/* ---------- Buttons (child theme: outlined, #ED5959, 25px radius, hover black) ---------- */
+.button{display:inline-block;font-size:14px;font-weight:600;line-height:17.5px;text-transform:uppercase;color:var(--btn);border:2px solid var(--btn);border-radius:25px;padding:12px 20px;background:transparent;transition:.3s}
+.button:hover{border-color:#000;color:#000}
+.join-band .button{font-size:13px;line-height:16.25px;color:#fff;border-color:#fff;padding:12px 40px}
+.join-band .button:hover{border-color:#000;color:#000}
+
+/* ---------- Home ---------- */
+.home-intro{padding:calc(var(--pw) * .08) 0 calc(var(--pw) * .05);margin-top:1px}
+.home-intro .spacer{height:128px}
+.home-intro h1{font-size:60px;font-weight:600;line-height:normal;text-align:center;margin:0 0 10px}
+.feature .container{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}
+.feature h2{font-size:30px;font-weight:700;line-height:normal;text-align:left;margin:0}
+.feature .text{padding:10px 25px}
+.feature .text .body{margin-top:31px}
+.feature .text .button-wrap{margin-top:31px}
+.feature .media{padding:10px 0}
+.feature .media img{width:100%}
+.feature-1{padding:40px 0 60px}
+.feature-2{padding:60px 0}
+.feature-3{padding:60px 0 calc(var(--pw) * .14)}
+.join-band{position:relative;background:url(../../images/home/join-the-colony-bg.webp) center/cover no-repeat;padding:calc(var(--pw) * .2) 0;text-align:center}
+.join-band::before{content:"";position:absolute;inset:0;background:rgba(220,179,87,.9)}
+.join-band .container{position:relative}
+.join-band h2{font-size:60px;font-weight:600;line-height:65px;color:#000;padding-bottom:20px;margin:0}
+.join-band h2 strong{font-weight:700}
+.join-band p{font-size:18px;line-height:38px;color:#000;padding-bottom:20px;margin:0 0 20px}
+
+/* ---------- Page hero (portfolio pages, About) ---------- */
+.page-hero{background:#222 url(../../images/common/hero-pens.webp) center/cover no-repeat;padding:calc(var(--pw) * .25) 0;text-align:center}
+.page-hero h1{font-size:55px;line-height:1.3;font-weight:300;color:#fff;margin:0 0 20px;padding-bottom:20px}
+.page-hero h1 b{font-weight:700}
+.section{padding:calc(var(--pw) * .06) 0}
+.section-title{font-size:55px;line-height:.95;font-weight:300;color:#000;margin:0 0 20px}
+.section-title b{font-weight:700}
+.space-12{height:12px}.space-32{height:32px}.space-64{height:64px}.space-96{height:96px}.space-128{height:128px}
+.banners{display:grid;grid-template-columns:repeat(3,1fr);column-gap:29.5px}
+.banners a{display:block}
+.banners img{width:100%;aspect-ratio:1/1;object-fit:cover}
+
+/* ---------- Gallery grid (WPBakery image grid: 370px tiles, 1px gutter) ---------- */
+.gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,370px);gap:1px;align-items:start}
+.gallery li{margin:0;line-height:0}
+.gallery a{display:block;overflow:hidden}
+.gallery img{width:370px;height:370px;object-fit:cover}
+.gallery img.small{width:auto}
+.gallery a:hover img{opacity:.85}
+
+/* ---------- About ---------- */
+.bio-row .container{display:grid;grid-template-columns:757px 353px;justify-content:space-between;align-items:center}
+.bio-row .bio{padding:10px 0}
+.bio-row .photo img{width:353px}
+.bio-row .section-title,.resume .section-title,.products-intro .section-title{padding-bottom:20px;margin-bottom:20px}
+.products{display:grid;grid-template-columns:565px 168px 168px 168px;justify-content:space-between}
+.products .anastasiy img{margin:0 auto;width:443px}
+.products .anastasiy p{margin-top:20px}
+.product{text-align:center}
+.product h2{font-size:30px;font-weight:400;line-height:normal;margin:0 0 20px}
+.product h2 a{color:#000}
+.product h2 a:hover{color:#000}
+.product h2 b{font-weight:700}
+.product img{width:90px;height:90px;margin:0 auto}
+.partners{display:grid;grid-template-columns:repeat(3,1fr);column-gap:29.5px}
+.partners img{width:150px;height:150px;margin:0 auto;object-fit:contain}
+
+/* ---------- Footer ---------- */
+.site-footer{background:#000;padding:34px 0;text-align:center}
+.footer-menu{display:flex;justify-content:center;flex-wrap:wrap;text-align:center}
+.footer-menu a{color:#fff}
+.footer-menu a:hover{color:var(--gold)}
+.footer-menu a:not(:last-child){border-right:1px solid #888;padding-right:12px;margin-right:12px}
+.footer-top{font-size:17px;line-height:28px}
+.footer-copy{padding:16px 0;color:#999;font-size:14px;line-height:28px}
+.footer-logo{width:100px;margin:0 auto 32px}
+.footer-copy .footer-menu a{color:#727272}
+.footer-copy .footer-menu a:hover{color:var(--gold)}
+
+/* ---------- Lightbox (look of lightbox2 used by the original) ---------- */
+.lightbox{position:fixed;inset:0;z-index:1000;display:none}
+.lightbox.open{display:block}
+.lb-overlay{position:absolute;inset:0;background:#000;opacity:.8}
+.lb-box{position:absolute;left:0;right:0;top:50px;text-align:center;line-height:0;pointer-events:none}
+.lb-frame{position:relative;display:inline-block;background:#fff;padding:4px;border-radius:3px;pointer-events:auto;animation:lbIn .3s ease}
+.lb-frame img{display:block;max-width:calc(100vw - 48px);max-height:calc(100vh - 128px);width:auto;height:auto}
+.lb-nav{position:absolute;inset:0}
+.lb-prev,.lb-next{position:absolute;top:0;bottom:0;width:45%;border:0;background:none;cursor:pointer;opacity:0;transition:opacity .6s;color:#fff;padding:0}
+.lb-prev{left:0;text-align:left}.lb-next{right:0;text-align:right}
+.lb-prev svg,.lb-next svg{width:30px;height:45px;margin:0 12px;filter:drop-shadow(0 0 3px rgba(0,0,0,.6))}
+.lb-prev:hover,.lb-next:hover,.lb-prev:focus-visible,.lb-next:focus-visible{opacity:1}
+.lb-data{display:flex;justify-content:space-between;align-items:flex-start;margin:0 auto;padding:6px 4px 0;line-height:1.1em;color:#ccc;font-size:12px;pointer-events:auto;text-align:left}
+.lb-close{background:none;border:0;cursor:pointer;padding:0;width:30px;height:30px;opacity:.7;color:#fff}
+.lb-close:hover{opacity:1}
+.lb-close svg{width:30px;height:30px}
+body.lb-lock{overflow:hidden}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+
+/* ---------- Scroll animations (WPBakery css_animation) ---------- */
+.js [data-animate]{opacity:0}
+.js [data-animate].in{opacity:1;animation-duration:1s;animation-fill-mode:both}
+.js [data-animate="fadeInDown"].in{animation-name:fadeInDown}
+.js [data-animate="bounceInDown"].in{animation-name:bounceInDown}
+.js [data-animate="fadeInDownBig"].in{animation-name:fadeInDownBig}
+@keyframes fadeInDown{from{opacity:0;transform:translate3d(0,-100%,0)}to{opacity:1;transform:none}}
+@keyframes fadeInDownBig{from{opacity:0;transform:translate3d(0,-2000px,0)}to{opacity:1;transform:none}}
+@keyframes bounceInDown{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0)}60%{opacity:1;transform:translate3d(0,25px,0)}75%{transform:translate3d(0,-10px,0)}90%{transform:translate3d(0,5px,0)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.js [data-animate]{opacity:1}.js [data-animate].in{animation:none}}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1279px){
+  /* Creativo switches to its mobile header below 1280px */
+  .site-header{position:relative;background:#000}
+  .site-header.is-sticky{position:relative;animation:none}
+  .header-bar{height:270px}
+  .header-inner{width:100%;padding:0 16px}
+  .header-right{display:none}
+  .menu-toggle{display:block}
+  .menu-open .mobile-menu{display:block}
+  .header-light .main-nav>ul>li>a{color:#fff}
+}
+@media (max-width:1219px){
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .gallery img{width:100%;height:auto;aspect-ratio:1/1}
+  .bio-row .container{grid-template-columns:2fr 1fr;column-gap:40px}
+  .bio-row .photo img{width:100%;max-width:353px;margin-left:auto}
+  .products{grid-template-columns:3fr 1fr 1fr 1fr;column-gap:20px}
+  .products .anastasiy img{width:100%;max-width:443px}
+}
+@media (max-width:767px){
+  .home-intro h1{font-size:min(60px,13.4vw)}
+  .feature .container{grid-template-columns:1fr}
+  .feature .text{padding:10px 35px}
+  .feature .media{padding:10px}
+  .join-band h2{font-size:min(60px,15.4vw)}
+  .page-hero h1.fit{font-size:min(55px,12.6vw)}
+  .page-hero h1 .brk{display:block}
+  .section-title{font-size:min(55px,14vw)}
+  .banners{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .gallery a{height:370px}
+  .gallery img,.gallery img.small{width:100%;height:370px;aspect-ratio:auto}
+  .bio-row .container{grid-template-columns:1fr}
+  .bio-row .bio,.bio-row .photo{padding:10px}
+  .bio-row .photo img{width:100%;max-width:none;margin:0 auto}
+  .products{grid-template-columns:1fr}
+  .partners{grid-template-columns:1fr}
+  .footer-menu{flex-direction:column}
+  .footer-menu a:not(:last-child){border-right:0;padding-right:0;margin-right:0}
+}
+
+.text-block>p:last-child{margin-bottom:0}
