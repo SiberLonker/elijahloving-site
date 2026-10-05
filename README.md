@@ -11,3 +11,5 @@ No build step is needed. Serve the folder as is. To preview it locally:
 Then open http://localhost:8080/.
 
 The generator scripts (build_images.py and build_site.py) live outside this folder in /workspace/site/tools/. They read the WordPress backup and never modify it.
+
+Old WordPress addresses (/patron/, /shop/, /blog/ and a few more) are small redirect pages: each one sends visitors on with a meta refresh and has a canonical tag pointing at its new page. They are deliberately left out of sitemap.xml.

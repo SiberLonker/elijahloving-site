@@ -3,7 +3,7 @@
 :root{
   --gold:#DCB357;
   --text:#666666;
-  --btn:#ED5959;
+  --btn:#D13F3F; /* was #ED5959; darkened slightly so button text passes the 4.5:1 contrast check */
   --cw:min(1160px, calc(100vw - 30px));
   --pw:min(1160px, 100vw); /* WPBakery % paddings resolve against this width */
 }
@@ -75,13 +75,18 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 /* ---------- Buttons (child theme: outlined, #ED5959, 25px radius, hover black) ---------- */
 .button{display:inline-block;font-size:14px;font-weight:600;line-height:17.5px;text-transform:uppercase;color:var(--btn);border:2px solid var(--btn);border-radius:25px;padding:12px 20px;background:transparent;transition:.3s}
 .button:hover{border-color:#000;color:#000}
-.join-band .button{font-size:13px;line-height:16.25px;color:#fff;border-color:#fff;padding:12px 40px}
-.join-band .button:hover{border-color:#000;color:#000}
+.join-band .button{font-size:13px;line-height:16.25px;color:#000;border-color:#000;padding:12px 40px} /* black on gold for contrast (white on gold was 2:1) */
+.join-band .button:hover{border-color:#fff;color:#fff}
 
 /* ---------- Home ---------- */
 .home-intro{padding:calc(var(--pw) * .08) 0 calc(var(--pw) * .05);margin-top:1px}
 .home-intro .spacer{height:128px}
 .home-intro h1{font-size:60px;font-weight:600;line-height:normal;text-align:center;margin:0 0 10px}
+.home-intro h1 .h1-name{display:block;font-size:22px;letter-spacing:6px;line-height:1.4;color:var(--text);margin-bottom:4px}
+/* "Available for illustration commissions" line (Home and Illustration portfolio) */
+.hire-line{text-align:center;margin:18px auto 0;max-width:760px}
+.hire-line p{margin:0 0 16px}
+.hire-line strong{color:#000}
 .feature .container{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}
 .feature h2{font-size:30px;font-weight:700;line-height:normal;text-align:left;margin:0}
 .feature .text{padding:10px 25px}
@@ -150,7 +155,10 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .footer-top{font-size:17px;line-height:28px}
 .footer-copy{padding:16px 0;color:#999;font-size:14px;line-height:28px}
 .footer-logo{width:100px;margin:0 auto 32px}
-.footer-copy .footer-menu a{color:#727272}
+.footer-copy .footer-menu a{color:#8a8a8a} /* was #727272, raised for contrast */
+.footer-email{margin:4px 0 6px}
+.footer-email a{color:#fff}
+.footer-email a:hover{color:var(--gold)}
 .footer-copy .footer-menu a:hover{color:var(--gold)}
 
 /* ---------- Lightbox (look of lightbox2 used by the original) ---------- */
