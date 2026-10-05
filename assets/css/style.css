@@ -105,6 +105,9 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .page-hero h1 b{font-weight:700}
 /* Home: same banner as About, title area left blank (height matches the 55px/1.3 h1 + 20px padding + 20px margin) */
 .home-hero .hero-blank{height:calc(55px * 1.3 + 40px)}
+/* The banner now sits above the intro, so the header-clearance spacer is not needed there; use normal section spacing */
+.home-hero + .home-intro{padding-top:max(40px, calc(var(--pw) * .06))}
+.home-hero + .home-intro .spacer{display:none}
 .section{padding:calc(var(--pw) * .06) 0}
 .section-title{font-size:55px;line-height:.95;font-weight:300;color:#000;margin:0 0 20px}
 .section-title b{font-weight:700}
