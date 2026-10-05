@@ -103,6 +103,8 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .page-hero{background:#222 url(../../images/common/hero-pens.webp) center/cover no-repeat;padding:calc(var(--pw) * .25) 0;text-align:center}
 .page-hero h1{font-size:55px;line-height:1.3;font-weight:300;color:#fff;margin:0 0 20px;padding-bottom:20px}
 .page-hero h1 b{font-weight:700}
+/* Home: same banner as About, title area left blank (height matches the 55px/1.3 h1 + 20px padding + 20px margin) */
+.home-hero .hero-blank{height:calc(55px * 1.3 + 40px)}
 .section{padding:calc(var(--pw) * .06) 0}
 .section-title{font-size:55px;line-height:.95;font-weight:300;color:#000;margin:0 0 20px}
 .section-title b{font-weight:700}
