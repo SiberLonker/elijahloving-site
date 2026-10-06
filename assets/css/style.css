@@ -5,7 +5,7 @@
   --text:#666666;
   --accent:var(--gold); /* the one accent color: header gold, used for buttons, borders, hovers, focus rings */
   --accent-ink:#8a6310; /* the same gold, deepened so text on white stays readable (5.4:1) */
-  --accent-on:#000; /* text on gold fills */
+  --accent-hover:#000; /* buttons turn black on hover, never filled */
   --cw:min(1160px, calc(100vw - 30px));
   --pw:min(1160px, 100vw); /* WPBakery % paddings resolve against this width */
 }
@@ -38,29 +38,29 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .main-nav>ul>li>a{display:block;padding:0 18px;line-height:124px;font-size:15px;font-weight:600;text-transform:uppercase;color:#fff}
 .main-nav>ul>li>a:hover,.main-nav>ul>li>a:focus-visible{color:var(--accent)}
 .has-sub>a .caret{display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-left:8px;position:relative;top:-3px}
-.sub-menu{list-style:none;margin:0;padding:12px 0;position:absolute;top:calc(100% - 30px);left:0;min-width:230px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
+.sub-menu{list-style:none;margin:0;padding:12px 0;position:absolute;top:calc(100% - 30px);left:0;min-width:230px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:4px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
 .sub-menu a{display:block;padding:8px 22px;font-size:14px;font-weight:600;line-height:22px;color:#333;text-transform:uppercase}
 .sub-menu a:hover,.sub-menu a:focus-visible,.sub-menu .current>a{color:var(--accent-ink)}
 .has-sub:hover .sub-menu,.has-sub:focus-within .sub-menu,.has-sub.open .sub-menu{opacity:1;visibility:visible;transform:none}
 .follow-wrap{position:relative;margin-left:10px}
 .header-button{display:inline-block;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:40px;padding:0 16px;border:2px solid #fff;border-radius:25px;color:#fff;background:transparent;cursor:pointer;transition:all .2s ease-in}
-.header-button:hover,.header-button:focus-visible,.follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
-.follow-menu{list-style:none;margin:0;padding:10px 0;position:absolute;right:0;top:calc(100% + 12px);min-width:200px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
+.header-button:hover,.header-button:focus-visible,.follow-wrap.open .header-button{border-color:var(--accent);background:transparent;color:var(--accent)}
+.follow-menu{list-style:none;margin:0;padding:10px 0;position:absolute;right:0;top:calc(100% + 12px);min-width:200px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:4px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
 .follow-wrap:hover .follow-menu,.follow-wrap:focus-within .follow-menu,.follow-wrap.open .follow-menu{opacity:1;visibility:visible;transform:none}
 .follow-menu a{display:flex;align-items:center;gap:12px;padding:8px 20px;font-size:14px;font-weight:600;color:#333;line-height:22px}
 .follow-menu a:hover,.follow-menu a:focus-visible{color:var(--accent-ink)}
 .icon{width:18px;height:18px;fill:currentColor;flex:none}
 /* Home has a white top area; the original's white menu is unreadable there, so the menu uses black until the header turns sticky */
 .header-light .main-nav>ul>li>a{color:#000}
-.header-light .main-nav>ul>li>a:hover{color:var(--accent-ink)}
+.header-light .main-nav>ul>li>a:hover,.header-light .main-nav>ul>li>a:focus-visible{color:var(--accent-ink)}
 .header-light .header-button{border-color:#000;color:#000}
-.header-light .header-button:hover,.header-light .follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
+.header-light .header-button:hover,.header-light .follow-wrap.open .header-button{border-color:var(--accent);background:transparent;color:var(--accent-ink)}
 .site-header.is-sticky{position:fixed;animation:slideDown .35s ease-out}
 .site-header.is-sticky .header-bar{background:#000;box-shadow:0 1px 6px rgba(0,0,0,.25)}
 .site-header.is-sticky .main-nav>ul>li>a{color:#fff}
-.site-header.is-sticky .main-nav>ul>li>a:hover{color:var(--accent)}
+.site-header.is-sticky .main-nav>ul>li>a:hover,.site-header.is-sticky .main-nav>ul>li>a:focus-visible{color:var(--accent)}
 .site-header.is-sticky .header-button{border-color:#fff;color:#fff}
-.site-header.is-sticky .header-button:hover,.site-header.is-sticky .follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
+.site-header.is-sticky .header-button:hover,.site-header.is-sticky .follow-wrap.open .header-button{border-color:var(--accent);background:transparent;color:var(--accent)}
 @keyframes slideDown{from{transform:translateY(-100%)}to{transform:none}}
 .menu-toggle{display:none;background:none;border:0;padding:10px 4px;cursor:pointer;color:#fff;margin-left:auto}
 .menu-toggle span{display:block;width:20px;height:3px;background:currentColor;margin:3px 0;border-radius:1px;transition:transform .2s,opacity .2s}
@@ -70,18 +70,19 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;z-index:60;background:#fff;box-shadow:0 6px 12px rgba(0,0,0,.15)}
 .mobile-menu ul{list-style:none;margin:0;padding:0}
 .mobile-menu li a{display:block;padding:15px 20px;border-bottom:1px solid #e5e5e5;font-size:15px;font-weight:600;line-height:28px;text-transform:uppercase;color:#333}
-.mobile-menu li a:hover{color:var(--accent-ink)}
+.mobile-menu li a:hover,.mobile-menu li a:focus-visible{color:var(--accent-ink)}
 .mobile-menu .sub a{padding-left:40px;font-size:14px}
 .mobile-menu .mobile-social{display:flex;gap:24px;padding:16px 20px;border-bottom:1px solid #e5e5e5}
 .mobile-menu .mobile-social a{padding:0;border:0;color:#333}
+.mobile-menu .mobile-social a:hover{color:var(--accent-ink)}
 .mobile-menu .mobile-social .icon{width:20px;height:20px}
 
-/* ---------- Buttons: one shared outline style (2px, 25px radius), gold; hover fills gold with black text ---------- */
+/* ---------- Buttons: one shared outline style (2px, 25px radius), never filled: gold outline and text, black on hover ---------- */
 .button{display:inline-block;font-family:inherit;font-size:14px;font-weight:600;line-height:17.5px;text-transform:uppercase;text-decoration:none;color:var(--accent-ink);border:2px solid var(--accent);border-radius:25px;padding:12px 20px;background:transparent;cursor:pointer;transition:.3s}
-.button:hover,.button:focus-visible,.button:active{background:var(--accent);border-color:var(--accent);color:var(--accent-on)}
+.button:hover,.button:focus-visible,.button:active{background:transparent;border-color:var(--accent-hover);color:var(--accent-hover)}
 /* on the gold Join band a gold outline would vanish, so the same button is drawn in black there */
 .join-band .button{color:#000;border-color:#000;padding:12px 40px}
-.join-band .button:hover,.join-band .button:focus-visible{background:#000;border-color:#000;color:var(--accent)}
+.join-band .button:hover,.join-band .button:focus-visible{background:transparent;border-color:#fff;color:#000}
 
 /* ---------- Home ---------- */
 .home-intro{padding:calc(var(--pw) * .08) 0 calc(var(--pw) * .05);margin-top:1px}
@@ -92,6 +93,9 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .hire-line{text-align:center;margin:18px auto 0;max-width:760px}
 .hire-line p{margin:0 0 16px}
 .hire-line strong{color:#000}
+.hire-headline{font-size:34px;line-height:1.25;font-weight:300;color:#000;margin:6px 0 10px}
+.hire-headline b{font-weight:700}
+.hire-sub{font-size:19px;line-height:1.5}
 .feature .container{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}
 .feature h2{font-size:30px;font-weight:700;line-height:normal;text-align:left;margin:0}
 .feature .text{padding:10px 25px}
@@ -215,6 +219,8 @@ body.lb-lock{overflow:hidden}
 }
 @media (max-width:767px){
   .home-intro h1{font-size:min(60px,13.4vw)}
+  .hire-headline{font-size:27px}
+  .hire-sub{font-size:17px}
   .feature .container{grid-template-columns:1fr}
   .feature .text{padding:10px 35px}
   .feature .media{padding:10px}
@@ -252,7 +258,7 @@ body.lb-lock{overflow:hidden}
 .post-content a{text-decoration:underline;text-underline-offset:2px;color:var(--accent-ink)}
 .post-content a:hover{color:var(--accent)}
 .post-content a.button{text-decoration:none}
-.post-content a.button:hover{color:var(--accent-on)}
+.post-content a.button:hover{color:var(--accent-hover)}
 .post-content figure,.post-featured{margin:28px 0}
 .post-content img,.post-featured img{margin:0 auto;height:auto}
 .post-content figcaption{font-size:14px;line-height:22px;text-align:center;margin-top:8px}
@@ -348,5 +354,6 @@ body.lb-lock{overflow:hidden}
 }
 /* post pages no longer show a date line, so give the title the room the date used to take */
 .post-title{margin-bottom:30px}
-/* keep Follow gold while its menu is open */
-.follow-wrap:hover .header-button,.follow-wrap:focus-within .header-button,.header-light .follow-wrap:hover .header-button,.site-header.is-sticky .follow-wrap:hover .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
+/* keep Follow gold (outline and text, no fill) while its menu is open */
+.follow-wrap:hover .header-button,.follow-wrap:focus-within .header-button,.site-header.is-sticky .follow-wrap:hover .header-button,.site-header.is-sticky .follow-wrap:focus-within .header-button{border-color:var(--accent);background:transparent;color:var(--accent)}
+.header-light .follow-wrap:hover .header-button,.header-light .follow-wrap:focus-within .header-button{border-color:var(--accent);background:transparent;color:var(--accent-ink)}
