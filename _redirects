@@ -1,0 +1,3 @@
+# Old Blog index now lives at Learn. Post URLs (/blog/YYYY/MM/DD/slug/) are unchanged.
+/blog    /learn/  301!
+/blog/   /learn/  301!

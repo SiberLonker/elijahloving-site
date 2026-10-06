@@ -286,3 +286,13 @@ body.lb-lock{overflow:hidden}
   .post-nav a{max-width:none}
   .post-nav-next{margin-left:0;text-align:left}
 }
+
+/* ---------- Learn tweaks ---------- */
+.post-back a{color:#8a6310}
+.post-back a:hover{color:#000}
+.blog-intro a{color:#8a6310;text-decoration:underline;text-underline-offset:2px}
+.blog-intro a:hover{color:#000}
+@media (min-width:1280px){
+  /* the desktop header sits over the hero, so leave room above the title */
+  .blog-hero{padding:230px 0 60px}
+}
