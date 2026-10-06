@@ -90,12 +90,11 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .home-intro h1{font-size:60px;font-weight:600;line-height:normal;text-align:center;margin:0 0 10px}
 .home-intro h1 .h1-name{display:block;font-size:22px;letter-spacing:6px;line-height:1.4;color:var(--text);margin-bottom:4px}
 /* "Available for illustration commissions" line (Home and Illustration portfolio) */
-.hire-line{text-align:center;margin:18px auto 0;max-width:760px}
+.hire-line{text-align:center;margin:18px auto 0}
 .hire-line p{margin:0 0 16px}
 .hire-line strong{color:#000}
-.hire-headline{font-size:34px;line-height:1.25;font-weight:300;color:#000;margin:6px 0 10px}
-.hire-headline b{font-weight:700}
-.hire-sub{font-size:19px;line-height:1.5}
+.hire-line .hire-tagline{font-size:18px;line-height:1.6;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:#000;margin:6px auto 18px;text-wrap:balance}
+.hire-tagline b{font-weight:700}
 .feature .container{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}
 .feature h2{font-size:30px;font-weight:700;line-height:normal;text-align:left;margin:0}
 .feature .text{padding:10px 25px}
@@ -219,8 +218,7 @@ body.lb-lock{overflow:hidden}
 }
 @media (max-width:767px){
   .home-intro h1{font-size:min(60px,13.4vw)}
-  .hire-headline{font-size:27px}
-  .hire-sub{font-size:17px}
+  .hire-line .hire-tagline{font-size:16px;letter-spacing:1px;line-height:1.55}
   .feature .container{grid-template-columns:1fr}
   .feature .text{padding:10px 35px}
   .feature .media{padding:10px}
