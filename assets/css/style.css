@@ -3,7 +3,9 @@
 :root{
   --gold:#DCB357;
   --text:#666666;
-  --btn:#D13F3F; /* was #ED5959; darkened slightly so button text passes the 4.5:1 contrast check */
+  --accent:var(--gold); /* the one accent color: header gold, used for buttons, borders, hovers, focus rings */
+  --accent-ink:#8a6310; /* the same gold, deepened so text on white stays readable (5.4:1) */
+  --accent-on:#000; /* text on gold fills */
   --cw:min(1160px, calc(100vw - 30px));
   --pw:min(1160px, 100vw); /* WPBakery % paddings resolve against this width */
 }
@@ -12,8 +14,9 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:var(--text);font-family:Raleway,Arial,Helvetica,sans-serif;font-size:17px;line-height:28px;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .wrapper-out{overflow:hidden;position:relative}
 img{max-width:100%;height:auto;display:block;border:0}
-a{color:var(--gold);text-decoration:none;transition:color .2s,background-color .2s,border-color .2s}
-a:hover{color:#000}
+a{color:var(--accent);text-decoration:none;transition:color .2s,background-color .2s,border-color .2s}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 p{margin:0 0 20px}
 p:last-child{margin-bottom:0}
 b,strong{font-weight:700}
@@ -33,30 +36,31 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .main-nav>ul{list-style:none;margin:0;padding:0;display:flex;align-items:center}
 .main-nav>ul>li{position:relative}
 .main-nav>ul>li>a{display:block;padding:0 18px;line-height:124px;font-size:15px;font-weight:600;text-transform:uppercase;color:#fff}
-.main-nav>ul>li>a:hover,.main-nav>ul>li>a:focus-visible{color:#fff;opacity:.75}
+.main-nav>ul>li>a:hover,.main-nav>ul>li>a:focus-visible{color:var(--accent)}
 .has-sub>a .caret{display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-left:8px;position:relative;top:-3px}
 .sub-menu{list-style:none;margin:0;padding:12px 0;position:absolute;top:calc(100% - 30px);left:0;min-width:230px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
 .sub-menu a{display:block;padding:8px 22px;font-size:14px;font-weight:600;line-height:22px;color:#333;text-transform:uppercase}
-.sub-menu a:hover,.sub-menu a:focus-visible,.sub-menu .current>a{color:var(--gold)}
+.sub-menu a:hover,.sub-menu a:focus-visible,.sub-menu .current>a{color:var(--accent-ink)}
 .has-sub:hover .sub-menu,.has-sub:focus-within .sub-menu,.has-sub.open .sub-menu{opacity:1;visibility:visible;transform:none}
 .follow-wrap{position:relative;margin-left:10px}
 .header-button{display:inline-block;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;line-height:40px;padding:0 16px;border:2px solid #fff;border-radius:25px;color:#fff;background:transparent;cursor:pointer;transition:all .2s ease-in}
-.header-button:hover,.follow-wrap.open .header-button{border-color:var(--btn);color:var(--btn)}
+.header-button:hover,.header-button:focus-visible,.follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
 .follow-menu{list-style:none;margin:0;padding:10px 0;position:absolute;right:0;top:calc(100% + 12px);min-width:200px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px solid var(--gold);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
 .follow-wrap:hover .follow-menu,.follow-wrap:focus-within .follow-menu,.follow-wrap.open .follow-menu{opacity:1;visibility:visible;transform:none}
 .follow-menu a{display:flex;align-items:center;gap:12px;padding:8px 20px;font-size:14px;font-weight:600;color:#333;line-height:22px}
-.follow-menu a:hover{color:var(--gold)}
+.follow-menu a:hover,.follow-menu a:focus-visible{color:var(--accent-ink)}
 .icon{width:18px;height:18px;fill:currentColor;flex:none}
 /* Home has a white top area; the original's white menu is unreadable there, so the menu uses black until the header turns sticky */
 .header-light .main-nav>ul>li>a{color:#000}
-.header-light .main-nav>ul>li>a:hover{color:#000}
+.header-light .main-nav>ul>li>a:hover{color:var(--accent-ink)}
 .header-light .header-button{border-color:#000;color:#000}
-.header-light .header-button:hover,.header-light .follow-wrap.open .header-button{border-color:var(--btn);color:var(--btn)}
+.header-light .header-button:hover,.header-light .follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
 .site-header.is-sticky{position:fixed;animation:slideDown .35s ease-out}
 .site-header.is-sticky .header-bar{background:#000;box-shadow:0 1px 6px rgba(0,0,0,.25)}
 .site-header.is-sticky .main-nav>ul>li>a{color:#fff}
+.site-header.is-sticky .main-nav>ul>li>a:hover{color:var(--accent)}
 .site-header.is-sticky .header-button{border-color:#fff;color:#fff}
-.site-header.is-sticky .header-button:hover{border-color:var(--btn);color:var(--btn)}
+.site-header.is-sticky .header-button:hover,.site-header.is-sticky .follow-wrap.open .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}
 @keyframes slideDown{from{transform:translateY(-100%)}to{transform:none}}
 .menu-toggle{display:none;background:none;border:0;padding:10px 4px;cursor:pointer;color:#fff;margin-left:auto}
 .menu-toggle span{display:block;width:20px;height:3px;background:currentColor;margin:3px 0;border-radius:1px;transition:transform .2s,opacity .2s}
@@ -66,17 +70,18 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .mobile-menu{display:none;position:absolute;left:0;right:0;top:100%;z-index:60;background:#fff;box-shadow:0 6px 12px rgba(0,0,0,.15)}
 .mobile-menu ul{list-style:none;margin:0;padding:0}
 .mobile-menu li a{display:block;padding:15px 20px;border-bottom:1px solid #e5e5e5;font-size:15px;font-weight:600;line-height:28px;text-transform:uppercase;color:#333}
-.mobile-menu li a:hover{color:var(--gold)}
+.mobile-menu li a:hover{color:var(--accent-ink)}
 .mobile-menu .sub a{padding-left:40px;font-size:14px}
 .mobile-menu .mobile-social{display:flex;gap:24px;padding:16px 20px;border-bottom:1px solid #e5e5e5}
 .mobile-menu .mobile-social a{padding:0;border:0;color:#333}
 .mobile-menu .mobile-social .icon{width:20px;height:20px}
 
-/* ---------- Buttons (child theme: outlined, #ED5959, 25px radius, hover black) ---------- */
-.button{display:inline-block;font-size:14px;font-weight:600;line-height:17.5px;text-transform:uppercase;color:var(--btn);border:2px solid var(--btn);border-radius:25px;padding:12px 20px;background:transparent;transition:.3s}
-.button:hover{border-color:#000;color:#000}
-.join-band .button{font-size:13px;line-height:16.25px;color:#000;border-color:#000;padding:12px 40px} /* black on gold for contrast (white on gold was 2:1) */
-.join-band .button:hover{border-color:#fff;color:#fff}
+/* ---------- Buttons: one shared outline style (2px, 25px radius), gold; hover fills gold with black text ---------- */
+.button{display:inline-block;font-family:inherit;font-size:14px;font-weight:600;line-height:17.5px;text-transform:uppercase;text-decoration:none;color:var(--accent-ink);border:2px solid var(--accent);border-radius:25px;padding:12px 20px;background:transparent;cursor:pointer;transition:.3s}
+.button:hover,.button:focus-visible,.button:active{background:var(--accent);border-color:var(--accent);color:var(--accent-on)}
+/* on the gold Join band a gold outline would vanish, so the same button is drawn in black there */
+.join-band .button{color:#000;border-color:#000;padding:12px 40px}
+.join-band .button:hover,.join-band .button:focus-visible{background:#000;border-color:#000;color:var(--accent)}
 
 /* ---------- Home ---------- */
 .home-intro{padding:calc(var(--pw) * .08) 0 calc(var(--pw) * .05);margin-top:1px}
@@ -140,7 +145,7 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .product{text-align:center}
 .product h2{font-size:30px;font-weight:400;line-height:normal;margin:0 0 20px}
 .product h2 a{color:#000}
-.product h2 a:hover{color:#000}
+.product h2 a:hover{color:var(--accent-ink)}
 .product h2 b{font-weight:700}
 .product img{width:90px;height:90px;margin:0 auto}
 .partners{display:grid;grid-template-columns:repeat(3,1fr);column-gap:29.5px}
@@ -150,16 +155,13 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .site-footer{background:#000;padding:34px 0;text-align:center}
 .footer-menu{display:flex;justify-content:center;flex-wrap:wrap;text-align:center}
 .footer-menu a{color:#fff}
-.footer-menu a:hover{color:var(--gold)}
+.footer-menu a:hover{color:var(--accent)}
 .footer-menu a:not(:last-child){border-right:1px solid #888;padding-right:12px;margin-right:12px}
 .footer-top{font-size:17px;line-height:28px}
 .footer-copy{padding:16px 0;color:#999;font-size:14px;line-height:28px}
-.footer-logo{width:100px;margin:0 auto 32px}
+.footer-logo{width:120px;margin:0 auto 24px}
 .footer-copy .footer-menu a{color:#8a8a8a} /* was #727272, raised for contrast */
-.footer-email{margin:4px 0 6px}
-.footer-email a{color:#fff}
-.footer-email a:hover{color:var(--gold)}
-.footer-copy .footer-menu a:hover{color:var(--gold)}
+.footer-copy .footer-menu a:hover{color:var(--accent)}
 
 /* ---------- Lightbox (look of lightbox2 used by the original) ---------- */
 .lightbox{position:fixed;inset:0;z-index:1000;display:none}
@@ -247,10 +249,10 @@ body.lb-lock{overflow:hidden}
 .post-date{margin:0 0 30px;color:var(--text);font-size:15px;text-transform:uppercase;letter-spacing:2px}
 .post-content h2{font-size:28px;line-height:1.25;font-weight:700;margin:36px 0 16px}
 .post-content h3,.post-content h4{font-size:22px;line-height:1.3;font-weight:700;color:#000;margin:30px 0 14px}
-.post-content a{text-decoration:underline;text-underline-offset:2px;color:#8a6310}
-.post-content a:hover{color:#000}
-.post-content a.button{text-decoration:none;color:var(--btn)}
-.post-content a.button:hover{color:#000}
+.post-content a{text-decoration:underline;text-underline-offset:2px;color:var(--accent-ink)}
+.post-content a:hover{color:var(--accent)}
+.post-content a.button{text-decoration:none}
+.post-content a.button:hover{color:var(--accent-on)}
 .post-content figure,.post-featured{margin:28px 0}
 .post-content img,.post-featured img{margin:0 auto;height:auto}
 .post-content figcaption{font-size:14px;line-height:22px;text-align:center;margin-top:8px}
@@ -265,19 +267,19 @@ body.lb-lock{overflow:hidden}
 .post-button{text-align:center;margin:24px 0}
 .post-nav{display:flex;justify-content:space-between;gap:24px;margin:40px 0 0;padding-top:24px;border-top:1px solid #ddd}
 .post-nav a{display:block;max-width:48%;color:#000;font-weight:600;line-height:1.4}
-.post-nav a:hover{color:#8a6310}
+.post-nav a:hover{color:var(--accent-ink)}
 .post-nav span{display:block;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
 .post-nav-next{margin-left:auto;text-align:right}
 .blog-intro{margin:0 0 20px}
 .year-jump{font-weight:600}
-.year-jump a{color:#8a6310;text-decoration:underline}
+.year-jump a{color:var(--accent-ink);text-decoration:underline}
 .archive-year{font-size:40px;font-weight:700;margin:48px 0 8px;scroll-margin-top:20px}
 .archive-month{font-size:20px;font-weight:700;color:#000;margin:24px 0 8px}
 .archive-list{list-style:none;margin:0;padding:0}
 .archive-list li{padding:6px 0;border-bottom:1px solid #eee;line-height:1.5}
 .archive-list time{display:inline-block;min-width:64px;color:var(--text);font-size:15px}
 .archive-list a{color:#000}
-.archive-list a:hover{color:#8a6310}
+.archive-list a:hover{color:var(--accent-ink)}
 @media (max-width:767px){
   .page-hero .hero-title{font-size:min(55px,12.6vw)}
   .post-title{font-size:30px}
@@ -288,47 +290,44 @@ body.lb-lock{overflow:hidden}
 }
 
 /* ---------- Learn tweaks ---------- */
-.post-back a{color:#8a6310}
-.post-back a:hover{color:#000}
-.blog-intro a{color:#8a6310;text-decoration:underline;text-underline-offset:2px}
-.blog-intro a:hover{color:#000}
+.post-back a{color:var(--accent-ink)}
+.post-back a:hover{color:var(--accent)}
+.blog-intro a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
+.blog-intro a:hover{color:var(--accent)}
 @media (min-width:1280px){
   /* the desktop header sits over the hero, so leave room above the title */
   .blog-hero{padding:230px 0 60px}
 }
 
 /* ---------- Work With Me intake form ---------- */
-.page-work-with-me .section a:not(.button){color:#8a6310;text-decoration:underline;text-underline-offset:2px}
-.page-work-with-me .section a:not(.button):hover{color:#000}
+.page-work-with-me .section a:not(.button){color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
+.page-work-with-me .section a:not(.button):hover{color:var(--accent)}
 .narrow{max-width:820px;margin-left:auto;margin-right:auto}
 .center{text-align:center}
 .lead{font-size:20px;line-height:32px;color:#333}
-.button-solid{background:#000;border-color:#000;color:#fff}
-.button-solid:hover{background:transparent;color:#000;border-color:#000}
 .wwm-grid{display:grid;grid-template-columns:5fr 7fr;gap:60px;align-items:start}
 .wwm-email{font-weight:600}
 .intake-form{background:#faf8f3;border:1px solid #eee;padding:32px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .field{margin:0 0 20px;border:0;padding:0;min-width:0}
 .field label,.field legend{display:block;font-weight:600;color:#000;margin:0 0 6px;line-height:1.4;padding:0}
-.field .req{color:var(--btn)}
+.field .req{color:var(--accent-ink)}
 .field .opt{font-weight:400;color:var(--text);font-size:14px}
 .field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=date],.field textarea{width:100%;font:inherit;font-size:16px;color:#222;background:#fff;border:1px solid #bbb;border-radius:4px;padding:10px 12px;line-height:1.4}
-.field input:focus,.field textarea:focus{outline:2px solid #8a6310;outline-offset:1px;border-color:#8a6310}
+.field input:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 .field textarea{resize:vertical}
 .hint{font-size:14px;line-height:1.45;margin:6px 0 0;color:#555}
 .choices{display:flex;flex-wrap:wrap;gap:8px 22px}
 .choice{display:flex;align-items:flex-start;gap:8px;font-weight:400 !important;color:#333 !important;cursor:pointer}
-.choice input{margin:6px 0 0;width:18px;height:18px;accent-color:#000;flex:none}
+.choice input{margin:6px 0 0;width:18px;height:18px;accent-color:var(--accent-ink);flex:none}
 .files-note{font-size:15px;background:#fff;border-left:3px solid var(--gold);padding:10px 14px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-actions{margin:8px 0 0}
-.form-actions .button{font-size:15px;padding:14px 28px;cursor:pointer}
 .form-actions .button[disabled]{opacity:.6;cursor:wait}
 .form-status{margin-top:16px}
 .form-status:empty{display:none}
 .form-status.ok{background:#eef6ee;border-left:3px solid #2e7d32;padding:12px 14px;color:#1b4d1e}
-.form-status.err{background:#fbeeee;border-left:3px solid var(--btn);padding:12px 14px;color:#7a1c1c}
+.form-status.err{background:#fbeeee;border-left:3px solid #b3261e;padding:12px 14px;color:#7a1c1c}
 @media (max-width:1019px){
   .wwm-grid{grid-template-columns:1fr;gap:30px}
 }
@@ -340,8 +339,6 @@ body.lb-lock{overflow:hidden}
 
 /* ---------- Learn categories ---------- */
 .learn-toc ul{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.learn-toc a{display:inline-block;border:1px solid #ccc;border-radius:20px;padding:6px 16px;font-size:15px;line-height:22px;color:#000}
-.learn-toc a:hover,.learn-toc a:focus-visible{border-color:#8a6310;color:#8a6310}
 .learn-cat{font-weight:300;line-height:1.15}
 .learn-cat b{font-weight:700}
 .learn-cat-desc{margin:0 0 14px;color:#555}
@@ -351,3 +348,5 @@ body.lb-lock{overflow:hidden}
 }
 /* post pages no longer show a date line, so give the title the room the date used to take */
 .post-title{margin-bottom:30px}
+/* keep Follow gold while its menu is open */
+.follow-wrap:hover .header-button,.follow-wrap:focus-within .header-button,.header-light .follow-wrap:hover .header-button,.site-header.is-sticky .follow-wrap:hover .header-button{border-color:var(--accent);background:var(--accent);color:var(--accent-on)}

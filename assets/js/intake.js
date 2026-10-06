@@ -7,7 +7,6 @@
   var form = document.getElementById('intake-form');
   if (!form) return;
   var statusBox = document.getElementById('form-status');
-  var EMAIL = 'info@elijahloving.com';
   var THANKS = form.getAttribute('action') || '/work-with-me/thanks/';
 
   /* Pre-fill from links like /work-with-me/?project=illustration&call=1 */
@@ -56,7 +55,7 @@
       })
       .catch(function () {
         btn.disabled = false;
-        show('Sorry, something went wrong sending the form. Please try again, or email me at <a href="mailto:' + EMAIL + '">' + EMAIL + '</a>.', 'err');
+        show('Something went wrong, please try again in a moment.', 'err');
       });
   });
 })();
