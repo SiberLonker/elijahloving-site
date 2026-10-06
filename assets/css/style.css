@@ -93,7 +93,7 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .hire-line{text-align:center;margin:18px auto 0}
 .hire-line p{margin:0 0 16px}
 .hire-line strong{color:#000}
-.hire-line .hire-tagline{font-size:18px;line-height:1.6;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:#000;margin:6px auto 18px;text-wrap:balance}
+.hire-line .hire-tagline{font-size:18px;line-height:1.6;font-weight:400;letter-spacing:1.5px;color:#000;margin:6px auto 18px;text-wrap:balance}
 .hire-tagline b{font-weight:700;white-space:nowrap}
 .feature .container{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}
 .feature h2{font-size:30px;font-weight:700;line-height:normal;text-align:left;margin:0}
