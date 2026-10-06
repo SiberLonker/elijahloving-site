@@ -3,14 +3,14 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://elijahloving.com/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image><image:loc>https://elijahloving.com/images/home/tlc-gwem-color.webp</image:loc></image:image>
     <image:image><image:loc>https://elijahloving.com/images/home/elijah-comiccon.webp</image:loc></image:image>
     <image:image><image:loc>https://elijahloving.com/images/home/tikvahminds-image.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://elijahloving.com/about/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <image:image><image:loc>https://elijahloving.com/images/about/selfy-2022.webp</image:loc></image:image>
   </url>
   <url>
@@ -77,8 +77,12 @@
     <lastmod>2026-10-05</lastmod>
   </url>
   <url>
+    <loc>https://elijahloving.com/work-with-me/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
     <loc>https://elijahloving.com/learn/</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://elijahloving.com/blog/2023/11/15/q3-patron-crowdfund-1st-july-2022/</loc>
