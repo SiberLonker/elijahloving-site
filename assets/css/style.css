@@ -128,6 +128,17 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .banners{display:grid;grid-template-columns:repeat(3,1fr);column-gap:29.5px}
 .banners a{display:block}
 .banners img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.portfolio-switch{padding:40px 0 8px}
+.portfolio-switch a{border:3px solid transparent;transition:border-color .2s}
+.portfolio-switch img{aspect-ratio:12/5;object-position:50% 50%}
+.portfolio-switch .pf-illus img{object-position:50% 35%}
+.portfolio-switch .pf-gd img{object-position:50% 0}
+.portfolio-switch .pf-students img{object-position:50% 52%}
+.portfolio-switch a:hover,.portfolio-switch a:focus-visible{border-color:var(--accent)}
+.portfolio-switch a[aria-current="page"]{border-color:var(--accent)}
+.gallery-first{padding-top:32px}
+.statement-row{padding-top:0}
+.statement-row .section-title{padding-bottom:20px;margin-bottom:20px}
 
 /* ---------- Gallery grid (WPBakery image grid: 370px tiles, 1px gutter) ---------- */
 .gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,370px);gap:1px;align-items:start}
@@ -227,6 +238,9 @@ body.lb-lock{overflow:hidden}
   .page-hero h1 .brk{display:block}
   .section-title{font-size:min(55px,14vw)}
   .banners{grid-template-columns:1fr}
+  .portfolio-switch .banners{row-gap:12px}
+  .portfolio-switch img{aspect-ratio:3/1}
+  .portfolio-switch{padding:24px 0 0}
   .gallery{grid-template-columns:1fr}
   .gallery a{height:370px}
   .gallery img,.gallery img.small{width:100%;height:370px;aspect-ratio:auto}
