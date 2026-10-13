@@ -378,3 +378,4 @@ body.lb-lock{overflow:hidden}
 /* keep Follow gold (outline and text, no fill) while its menu is open */
 .follow-wrap:hover .header-button,.follow-wrap:focus-within .header-button,.site-header.is-sticky .follow-wrap:hover .header-button,.site-header.is-sticky .follow-wrap:focus-within .header-button{border-color:var(--accent);background:transparent;color:var(--accent)}
 .header-light .follow-wrap:hover .header-button,.header-light .follow-wrap:focus-within .header-button{border-color:var(--accent);background:transparent;color:var(--accent-ink)}
+.footer-parent{font-size:12px;color:inherit;opacity:.8;text-decoration:none}.footer-parent:hover{opacity:1;text-decoration:underline}
