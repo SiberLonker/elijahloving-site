@@ -1,3 +1,11 @@
 # Old Blog index now lives at Learn. Post URLs (/blog/YYYY/MM/DD/slug/) are unchanged.
 /blog    /learn/  301!
 /blog/   /learn/  301!
+
+# Legacy pages, real 301s (were meta refresh stubs)
+/patron    https://patreon.elijahloving.com  301!
+/patron/   https://patreon.elijahloving.com  301!
+/shop    /portfolio/  301!
+/shop/   /portfolio/  301!
+/join-the-colony    https://patreon.elijahloving.com  301!
+/join-the-colony/   https://patreon.elijahloving.com  301!

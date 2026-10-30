@@ -46,3 +46,75 @@ force = true
 [redirects.conditions]
 
 [redirects.headers]
+
+[[redirects]]
+from = "/patron"
+to = "https://patreon.elijahloving.com"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/patron/"
+to = "https://patreon.elijahloving.com"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/shop"
+to = "/portfolio/"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/shop/"
+to = "/portfolio/"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/join-the-colony"
+to = "https://patreon.elijahloving.com"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/join-the-colony/"
+to = "https://patreon.elijahloving.com"
+status = 301.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
