@@ -131,7 +131,7 @@
  <h2 class="section-title">HUMAN-<b>MADE</b></h2>
  <div class="text-block"><p>Every finished piece is digitally hand drawn by Elijah Loving, start to finish. My handwritten signature and red hanko mark work made with my own hand and judgment. Process files stay private as my receipts.</p></div>
  <div class="maker-signoff">
-  <img class="hanko" src="/images/common/hanko-current-original.png" width="4993" height="10299" alt="Elijah Loving red hanko" decoding="async">
+  <img class="hanko" src="/images/common/hanko-current-original.png" width="4993" height="10299" alt="Elijah Loving red hanko">
   <p class="maker-signoff-name">Elijah Loving</p>
  </div>
 </div></section>
@@ -212,5 +212,36 @@ Lobo Orginal Comic Cowboy for the 1960s</p>
 </footer>
 </div>
 <script src="../assets/js/main.js" defer></script>
+<script>
+/* The source hanko is 10299px tall, over the 8192px GPU texture limit, so some
+   browsers keep this eager image's box and paint nothing. Draw it into a
+   small canvas. The footer image is left as an img. */
+(function () {
+  var img = document.querySelector('.maker-signoff img.hanko');
+  if (!img) return;
+  function paint() {
+    if (!img.naturalWidth || !img.parentNode) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = img.clientWidth, h = img.clientHeight;
+    if (w < 2 || h < 2) return;
+    var canvas = document.createElement('canvas');
+    canvas.className = 'hanko';
+    canvas.setAttribute('role', 'img');
+    canvas.setAttribute('aria-label', img.getAttribute('alt') || 'Elijah Loving red hanko');
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    var px = ctx.getImageData(0, 0, canvas.width, canvas.height).data, reds = 0;
+    for (var i = 0; i < px.length; i += 16) {
+      if (px[i] > 160 && px[i] > px[i + 1] + 40) reds++;
+    }
+    if (reds < 8) return;
+    img.replaceWith(canvas);
+  }
+  if (img.complete && img.naturalWidth) paint();
+  else img.addEventListener('load', paint);
+})();
+</script>
 </body>
 </html>
