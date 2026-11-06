@@ -59,6 +59,40 @@
     anim.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* Footer hanko is 10299px tall, past the common 8192px GPU texture limit.
+     Draw the original file into a small canvas so the mark paints on first load.
+     The About sign-off is handled separately and is not touched here. */
+  var footerHanko = document.querySelector('footer .footer-brand img.hanko');
+  if (footerHanko) {
+    var tries = 0;
+    var paintFooterHanko = function () {
+      if (!footerHanko.parentNode) return;
+      if (!footerHanko.naturalWidth) return;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = footerHanko.clientWidth, h = footerHanko.clientHeight;
+      if (w < 2 || h < 2) {
+        if (tries++ < 90) requestAnimationFrame(paintFooterHanko);
+        return;
+      }
+      var canvas = document.createElement('canvas');
+      canvas.className = 'hanko';
+      canvas.setAttribute('role', 'img');
+      canvas.setAttribute('aria-label', footerHanko.getAttribute('alt') || 'Elijah Loving red hanko');
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(footerHanko, 0, 0, canvas.width, canvas.height);
+      var px = ctx.getImageData(0, 0, canvas.width, canvas.height).data, reds = 0;
+      for (var i = 0; i < px.length; i += 16) {
+        if (px[i] > 160 && px[i] > px[i + 1] + 40) reds++;
+      }
+      if (reds < 8) return;
+      footerHanko.replaceWith(canvas);
+    };
+    footerHanko.addEventListener('load', paintFooterHanko);
+    if (footerHanko.complete) paintFooterHanko();
+  }
+
   /* Lightbox for the portfolio grids (same behavior as lightbox2 on the original site) */
   var links = Array.prototype.slice.call(document.querySelectorAll('a[data-lightbox]'));
   if (!links.length) return;

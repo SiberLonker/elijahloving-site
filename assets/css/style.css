@@ -178,6 +178,8 @@ h1,h2,h3{font-family:Raleway,Arial,Helvetica,sans-serif;color:#000;margin:0 0 20
 .footer-top{font-size:17px;line-height:28px}
 .footer-copy{padding:16px 0;color:#999;font-size:14px;line-height:28px}
 .footer-logo{width:120px;margin:0 auto 24px}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:24px;margin:0 auto 24px;max-width:100%}
+.footer-brand .footer-logo{margin:0;flex:none}
 .footer-copy .footer-menu a{color:#8a8a8a} /* was #727272, raised for contrast */
 .footer-copy .footer-menu a:hover{color:var(--accent)}
 
@@ -480,12 +482,12 @@ body.lb-lock{overflow:hidden}
 /* Maker's hanko: original PNG, display size only. */
 .footer-mark{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;margin-top:32px;max-width:100%;text-align:center}
 .footer-mark-copy{text-align:center}
-.footer-mark .hanko,.maker-signoff .hanko{display:block;flex:0 0 auto;min-width:0;max-width:none;object-fit:contain;height:78px;width:calc(78px * 4993 / 10299)}
+.footer-brand .hanko,.maker-signoff .hanko{display:block;flex:0 0 auto;min-width:0;max-width:none;object-fit:contain;height:78px;width:calc(78px * 4993 / 10299)}
 .maker-signoff{display:flex;align-items:center;flex-wrap:wrap;gap:18px 22px;margin-top:28px;max-width:100%}
 .maker-signoff .hanko{height:132px;width:calc(132px * 4993 / 10299)}
 .maker-signoff-name{margin:0;color:#000;font-family:Raleway,Arial,Helvetica,sans-serif;font-weight:600;font-size:22px;line-height:1.2;letter-spacing:.01em;border-bottom:2px solid var(--gold);padding:0 2px 8px}
 @media (max-width:767px){
-  .footer-mark .hanko{height:68px;width:calc(68px * 4993 / 10299)}
+  .footer-brand .hanko{height:68px;width:calc(68px * 4993 / 10299)}
   .maker-signoff .hanko{height:112px;width:calc(112px * 4993 / 10299)}
   .maker-signoff-name{font-size:20px}
 }
