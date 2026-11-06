@@ -476,3 +476,15 @@ body.lb-lock{overflow:hidden}
    (Home = 25% + 25% padding of the page width plus the 55px/1.3 title area and its 40px spacing) ---------- */
 .page-hero,.page-hero.hero-compact,.page-hero.blog-hero{box-sizing:border-box;height:calc(var(--pw) * .5 + 55px * 1.3 + 40px);padding:0;display:flex;align-items:center;justify-content:center}
 .page-hero > .container{width:var(--cw)}
+
+/* Maker's hanko: original PNG, display size only. */
+.footer-mark{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 16px;margin-top:8px;max-width:100%}
+.footer-mark .hanko,.maker-signoff .hanko{display:block;flex:0 0 auto;min-width:0;max-width:none;object-fit:contain;height:78px;width:calc(78px * 4993 / 10299)}
+.maker-signoff{display:flex;align-items:center;flex-wrap:wrap;gap:18px 22px;margin-top:28px;max-width:100%}
+.maker-signoff .hanko{height:132px;width:calc(132px * 4993 / 10299)}
+.maker-signoff-name{margin:0;color:#000;font-family:Raleway,Arial,Helvetica,sans-serif;font-weight:600;font-size:22px;line-height:1.2;letter-spacing:.01em;border-bottom:2px solid var(--gold);padding:0 2px 8px}
+@media (max-width:767px){
+  .footer-mark .hanko{height:68px;width:calc(68px * 4993 / 10299)}
+  .maker-signoff .hanko{height:112px;width:calc(112px * 4993 / 10299)}
+  .maker-signoff-name{font-size:20px}
+}
